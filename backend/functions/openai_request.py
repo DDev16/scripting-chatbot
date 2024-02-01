@@ -14,7 +14,7 @@ openai.api_key = config('OPENAI_API_KEY')
 def convert_audio_to_text(audio_file):
     try:
         transcript = openai.Audio.transcribe("whisper-1", audio_file)
-        message_text = transcript['text']
+        message_text = transcript["text"]
         return message_text
     except Exception as e:
         print(e)
@@ -36,7 +36,6 @@ def get_chat_response(message_input):
             model="gpt-3.5-turbo",
             messages=messages
         )
-        print(response)
         message_text = response['choices'][0]['message']['content']
         return message_text
     except Exception as e:
