@@ -90,6 +90,7 @@ async def post_audio(file: UploadFile = File(...)):
 
 
     # Convert Chat Response to audio
+    print(chat_response)
     audio_output = convert_text_to_speech(chat_response)
 
     # Guard: Ensure audio response
