@@ -1,41 +1,49 @@
 import { useState } from "react";
 import axios from "axios";
 
+type Message = any; // Define the Message type based on your data structure
+
 type Props = {
-  setMessages: any;
+  setMessages: (messages: Message[]) => void;
 };
 
 function Title({ setMessages }: Props) {
   const [isResetting, setIsResetting] = useState(false);
 
-  // Reset the conversation
   const resetConversation = async () => {
     setIsResetting(true);
 
-    await axios
-      .get("http://localhost:8000/reset")
-      .then((res) => {
-        if (res.status == 200) {
-          setMessages([]);
-        } else {
-          console.error("There was an error with the API request to back end");
-        }
-      })
-      .catch((err) => {
-        console.error(err.message);
-      });
+    try {
+      const response = await axios.get("http://localhost:8000/reset");
 
-    setIsResetting(false);
+      if (response.status === 200) {
+        setMessages([]);
+      } else {
+        console.error("Error with the API request to back end");
+        // Optionally, handle error for the user interface here
+      }
+    } catch (err) {
+    console.error((err as Error).message);
+      // Optionally, handle error for the user interface here
+    } finally {
+      setIsResetting(false);
+    }
   };
 
   return (
-    <div className=" flex justify-between items-center w-full p-4 bg-gray-900 text-white font-bold shadow">
-      <div className="italic">Rachel</div>
+<div className="flex justify-between items-center w-full p-4 bg-gray-900 text-white font-bold shadow">
+      {/* to do- add image */ }
+      <img src="/Logo.gif" alt="Devd Image" className="w-20 h-20 rounded-full" />
+       
+
+      <div className="italic text-2xl">Dillons Custom ChatBot</div>
       <button
         onClick={resetConversation}
+        disabled={isResetting}
+        aria-label="Reset Conversation"
         className={
           "transition-all duration-300 text-blue-300 hover:text-pink-500 " +
-          (isResetting && "animate-pulse")
+          (isResetting ? "animate-pulse" : "")
         }
       >
         <svg

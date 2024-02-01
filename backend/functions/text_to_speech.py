@@ -34,6 +34,7 @@ def convert_text_to_speech(message):
         return
 
     # Inspect and Log Response
+    
     print("API Response Code:", response.status_code)
     if response.status_code != 200:
         print("API Response Content:", response.text)
