@@ -31,6 +31,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:8000",
     "http://localhost:5000",
+    "https://scripting-chatbot-5l8i.vercel.app/",
 ]
 
 # CORS - Middleware
