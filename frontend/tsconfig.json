@@ -13,6 +13,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
+    "esModuleInterop": true, // or add "node" to the "types" array
+
 
     /* Linting */
     "strict": true,

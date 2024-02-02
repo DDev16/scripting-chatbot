@@ -9,9 +9,11 @@ def get_recent_messages():
     
     file_name = "stored_data.json"
     learn_instruction = {
-        "role": "system",
-        "content": " You are interviewing the user for a job as a retail assistant. Ask short questions that are relevant to the junior position. Your name is Rachel. the user is called Dillon. Keep your answers to under 30 words."
-    }
+    "role": "system",
+    "content": "I am a buyer looking for property in Lake Havasu City, Arizona. My budget is between $500,000 and $800,000. I prefer single-family homes, condos, or townhouses. I'm interested in properties with at least 3 bedrooms and 2 bathrooms, and I have a preference for a swimming pool. Location near Lake Havasu and local amenities is important. I can consider properties that are move-in ready or require minor renovations. I aim to find a property within the next 6 months and am open to price negotiation. As my real estate agent, please assist me in finding suitable properties and providing relevant information."
+}
+
+
 
 
     # Initialize messages
@@ -20,9 +22,9 @@ def get_recent_messages():
     # Add a random element 
     x = random.uniform(0, 1)
     if x < 0.5:
-        learn_instruction["content"] = learn_instruction["content"] + " Your response will include some dry humour."
-    else:
-        learn_instruction["content"] = learn_instruction["content"] + " Your response will include a rather challenging question."
+        learn_instruction["content"] = learn_instruction["content"] + " Your response will include statements of unweary feelings about the move."
+    # else:
+    #     learn_instruction["content"] = learn_instruction["content"] + " Your response will include a rather challenging question."
 
 
     # Append instruction to messages
