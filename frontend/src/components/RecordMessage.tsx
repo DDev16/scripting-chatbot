@@ -80,6 +80,7 @@ function RecordMessage({ handleStop }: Props) {
       <p className="mt-2 text-white font-light">{isRecording ? 'Recording' : 'Not Recording'}</p>
     </div>
   );
+  
 }
 
 export default RecordMessage;
