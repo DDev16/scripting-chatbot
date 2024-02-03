@@ -6,7 +6,7 @@
 
 # Main Imports
 from fastapi import FastAPI, File, UploadFile, HTTPException
-from fastapi.responses import StreamingResponse, JSONResponse
+from fastapi.responses import StreamingResponse
 from fastapi.middleware.cors import CORSMiddleware
 import openai
 
@@ -31,7 +31,7 @@ origins = [
     "http://localhost:3000",
     "http://localhost:8000",
     "http://localhost:5000",
-    "https://scripting-chatbot-5l8i.vercel.app/",
+    "https://scripting-chatbot.vercel.app/",
 ]
 
 # CORS - Middleware
