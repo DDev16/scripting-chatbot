@@ -29,7 +29,7 @@ function Controller() {
       formData.append("file", blob, "myFile.wav");
 
       // First, post the audio and get the text response
-      const textRes = await axios.post("https://scripting-chatbot.vercel.app/post-audio/", formData, {
+      const textRes = await axios.post("http://localhost:8000/post-audio/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -43,7 +43,7 @@ function Controller() {
       ]);
 
       // Then, fetch the audio response from a new endpoint
-      const audioRes = await axios.get("https://scripting-chatbot.vercel.app/get-audio-response/", {
+      const audioRes = await axios.get("http://localhost:8000/get-audio-response/", {
         responseType: "blob",
       });
 
