@@ -29,7 +29,7 @@ function Controller() {
       formData.append("file", blob, "myFile.wav");
 
       // First, post the audio and get the text response
-      const textRes = await axios.post("https://scripting-chatbot-5l8i.vercel.app/post-audio/", formData, {
+      const textRes = await axios.post("http://localhost:8000/post-audio/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -43,7 +43,7 @@ function Controller() {
       ]);
 
       // Then, fetch the audio response from a new endpoint
-      const audioRes = await axios.get("https://scripting-chatbot-5l8i.vercel.app/get-audio-response/", {
+      const audioRes = await axios.get("http://localhost:8000/get-audio-response/", {
         responseType: "blob",
       });
 
@@ -74,10 +74,10 @@ function Controller() {
             return (
               <div
                 key={index + message.sender}
-                className={`flex flex-col ${message.sender === "Chatbot" ? "items-end" : ""}`}
+                className={`flex flex-col ${message.sender === "rachel" ? "items-end" : ""}`}
               >
                 <div className="mt-4">
-                  <p className={message.sender === "Chatbot" ? "text-right mr-2 italic text-green-500" : "ml-2 italic text-blue-500"}>
+                  <p className={message.sender === "rachel" ? "text-right mr-2 italic text-green-500" : "ml-2 italic text-blue-500"}>
                     {message.sender}
                   </p>
                   {message.text && (
@@ -113,7 +113,7 @@ function Controller() {
       </div>
     </div>
   );
-
+  
 }
 
 export default Controller;
