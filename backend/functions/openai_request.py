@@ -3,6 +3,7 @@ from decouple import config
 
 # Import Custom Functions
 from functions.database import get_recent_messages
+from tempfile import NamedTemporaryFile
 
 
 # REtrieve Environment Variables
